@@ -62,9 +62,7 @@ public class AboutusActivity extends ActionBarActivity {
 
 
 
-        txt1.setText("Envision is a globally renowned IT Services company dealing in Software development, Web development and designing. Being an experienced technical team.\nEnvision has mastered in ERP solutions, e-Commerce and Web based ERP solutions, Industrial Automation software communicating with Micro controllers and PLCs (Data Acquisition, SCADA) software.\n" +
-                "\n\n" +
-                "Understanding business in a systematic way and providing competitive solutions is passion of Envision team. Being in the industry for more than a decade in development.\nEnvision has expanded its wings to touch unlimited sky of opportunities in IT industry by providing Placement Services and Professional Training Services for Confident Candidates from any field, Engineering students, and existing professional to fine tune their rough edges. ");
+        txt1.setText("This app deals about maintaining college club activites within a single app where people take online test and\nSearch blood donor and get immediate updates regarding the particular club. ");
         txt1.setSelected(true);
 
 
