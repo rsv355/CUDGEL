@@ -120,9 +120,15 @@ public class QuestionActivity extends ActionBarActivity {
             }
         });
 
+        pieView.setProgress(0);
+        pieView.setMax(350);
+        pieView.animateProgressFill();
+
         viewdata(StartTestActivity.Ques_det);
 
+
         checkQuestionNo(counter);
+
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,32 +166,31 @@ public class QuestionActivity extends ActionBarActivity {
 
             @Override
             public void onProgressCompleted() {
-                counter+=1;
-
-                if(counter>=StartTestActivity.Ques_det.size()){
-                    pieView.setTextSize(18);
-                    pieView.setText("Time up");
-
-                    selectoption.add(selectedOption);
-                    Log.e("Select value in time",""+selectedOption);
-
-                    insertRecordinDatabase();
+//                counter+=1;
+//
+//                if(counter>=StartTestActivity.Ques_det.size()){
+//                    pieView.setTextSize(18);
+//                    pieView.setText("Time up");
+//
+//                    selectoption.add(selectedOption);
+//                    Log.e("Select value in time",""+selectedOption);
+//
+//                    insertRecordinDatabase();
 
 
                     Toast.makeText(QuestionActivity.this,"Questions are finished :)",Toast.LENGTH_LONG).show();
                     Intent i = new Intent(QuestionActivity.this,FinishActivity.class);
                     startActivity(i);
                     finish();
-                }else {
+               /* }else {
                     checkQuestionNo(counter);
 
 
-                }
+                }*/
 
 
             }
         });
-
 
         time_text  =  Integer.valueOf(Prefs.getString("Time_text",""));
         time_image =  Integer.valueOf(Prefs.getString("Time_image", ""));
@@ -196,6 +201,7 @@ public class QuestionActivity extends ActionBarActivity {
 
 
     public void checkQuestionNo(final int qno ){
+
         ArrayList<QuestionDetails> newObj = new ArrayList<QuestionDetails>(1);
         newObj.add(StartTestActivity.Ques_det.get(counter));
         viewdata(newObj);
@@ -323,11 +329,6 @@ int total_wrong_answer=0;
 
 public void viewdata(ArrayList<QuestionDetails> Ques_detlobjects) {
 
-   /* pieView.setProgress(0);
-    pieView.setMax(350);
-    pieView.animateProgressFill();
-*/
-
         Myadapter adapter = new Myadapter(QuestionActivity.this,Ques_detlobjects,counter);
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -447,45 +448,11 @@ public void viewdata(ArrayList<QuestionDetails> Ques_detlobjects) {
            if(values.get(position).Q_type.equalsIgnoreCase("text")){
                finaltime=time_text;
            }
-    /*       else if(values.get(position).Q_type.equalsIgnoreCase("image")){
-                //setting the image for image questions
-               if(values.get(position).Q_image_url == null) {
-                   img.setVisibility(View.GONE);
-               }
-               else{
-                   img.setVisibility(View.VISIBLE);
-                   *//*try {
-
-                       Log.e("full path", String.valueOf(values.get(position).Q_image_url));
-                       Picasso.with(QuestionActivity.this.getBaseContext()).load(values.get(position).Q_image_url).priority(Picasso.Priority.HIGH).into(img,new Callback(){
-
-                           @Override
-                           public void onSuccess() {
-                               finaltime=time_image;
-                               Log.e("Piccaso","image loded sucesfullY");
-                           }
-
-                           @Override
-                           public void onError() {
-
-                           }
-                       });
 
 
-                   } catch (Exception e) {
-                       Log.e("Execpeti loading profile", e.toString());
-                   }*//*
-               }
-
-           }
-           else if(values.get(position).Q_type.equalsIgnoreCase("audio")){
-               finaltime=time_audio;
-           }*/
-
-
-           pieView.setProgress(0);
+          /* pieView.setProgress(0);
            pieView.setMax(finaltime*35);
-           pieView.animateProgressFill();
+           pieView.animateProgressFill();*/
 
 
 

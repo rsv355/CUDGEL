@@ -15,9 +15,22 @@
         android:orientation="horizontal">
 
         <net.qiujuer.genius.widget.GeniusButton
+            android:id="@+id/btnPrevious"
+            android:text="PREVIOUS"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            genius:g_delayClick="true"
+            genius:g_touchEffect="move"
+            genius:g_theme="@array/Marsala"
+            genius:g_touchEffectColor="#ff4181ff" />
+
+
+        <net.qiujuer.genius.widget.GeniusButton
             android:id="@+id/btnNext"
             android:text="NEXT"
-            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             genius:g_delayClick="true"
             genius:g_touchEffect="move"
