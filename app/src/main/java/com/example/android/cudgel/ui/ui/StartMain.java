@@ -53,6 +53,9 @@ public class StartMain extends ActionBarActivity {
             alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog,int which) {
 
+                    Intent dialogIntent = new Intent(android.provider.Settings.ACTION_SETTINGS);
+                    dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(dialogIntent);
 
                 }
             });
