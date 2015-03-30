@@ -40,22 +40,123 @@
 
     </LinearLayout>
 
-    <com.filippudak.ProgressPieView.ProgressPieView
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:id="@+id/progressPieViewXml"
-        android:layout_width="match_parent"
+    <LinearLayout
         android:layout_below="@+id/toolbar"
-        android:layout_height="80dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="28sp"
-        ppv:ppvInverted="true"
-        android:text="0"/>
+        android:id="@+id/clockView"
+        android:padding="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/txtHour"
+                android:textSize="52sp"
+                android:textColor="#669999"
+                android:text="00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+
+
+                android:textSize="12sp"
+                android:textColor="#1A4C80"
+                android:text="hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_gravity="top"
+            android:gravity="top"
+            android:textSize="52sp"
+            android:textColor="#476B6B"
+            android:text=":"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/txtMinute"
+                android:textSize="52sp"
+                android:textColor="#669999"
+                android:text="00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+
+                android:textSize="12sp"
+                android:textColor="#1A4C80"
+                android:text="minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_gravity="top"
+            android:gravity="top"
+            android:textSize="52sp"
+            android:textColor="#476B6B"
+            android:text=":"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/txtSecond"
+                android:textSize="52sp"
+                android:textColor="#669999"
+                android:text="00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+
+
+                android:textSize="12sp"
+                android:textColor="#1A4C80"
+                android:text="seconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+</LinearLayout>
+
+    </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_below="@+id/progressPieViewXml"
+        android:layout_below="@+id/clockView"
         android:layout_above="@id/linearBottom"
         android:layout_height="match_parent"
         android:footerDividersEnabled="false"

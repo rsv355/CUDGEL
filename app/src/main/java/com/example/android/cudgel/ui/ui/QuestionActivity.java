@@ -36,11 +36,12 @@ import java.util.Date;
 
 
 public class QuestionActivity extends ActionBarActivity {
+    private TextView txtSecond,txtMinute,txtHour;
     private Toolbar toolbar;
     private ListView listview;
     ProgressDialog dialog;
     ImageView img;
-    net.qiujuer.genius.widget.GeniusButton btnNext;
+    net.qiujuer.genius.widget.GeniusButton btnNext,btnPrevious;
     com.filippudak.ProgressPieView.ProgressPieView pieView;
     private ArrayList<QuestionDetails> Ques_det;
     int counter=0;
@@ -99,13 +100,17 @@ public class QuestionActivity extends ActionBarActivity {
         db= new DBAdapter(QuestionActivity.this);
         obj = new CurrentTest();
 
-
-        pieView = (com.filippudak.ProgressPieView.ProgressPieView) findViewById(R.id.progressPieViewXml);
+        btnPrevious = (net.qiujuer.genius.widget.GeniusButton)findViewById(R.id.btnPrevious);
+      //  pieView = (com.filippudak.ProgressPieView.ProgressPieView) findViewById(R.id.progressPieViewXml);
         listview = (ListView) findViewById(R.id.listview);
         btnNext = (net.qiujuer.genius.widget.GeniusButton)findViewById(R.id.btnNext);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor("#3D3427"));
         toolbar.setNavigationIcon(R.drawable.icon_back);
+
+        txtSecond= (TextView) findViewById(R.id.txtSecond);
+        txtMinute= (TextView) findViewById(R.id.txtMinute);
+        txtHour= (TextView) findViewById(R.id.txtHour);
 
 
         if (toolbar != null) {
@@ -120,10 +125,13 @@ public class QuestionActivity extends ActionBarActivity {
             }
         });
 
-        pieView.setProgress(0);
-        pieView.setMax(350);
-        pieView.animateProgressFill();
 
+        // 1s = 35
+       /* pieView.setProgress(0);
+        pieView.setMax(350);
+        pieView.animateProgressFill();*/
+
+        setclock();
         viewdata(StartTestActivity.Ques_det);
 
 
@@ -150,16 +158,34 @@ public class QuestionActivity extends ActionBarActivity {
             }
         });
 
+        btnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                counter-=1;
+                if(counter<0){
+                    Log.e("indied if","if");
+                    isTestComplete=true;
+                    Toast.makeText(QuestionActivity.this,"You are at the first Question",Toast.LENGTH_LONG).show();
+                }else {
+                    Log.e("indied else","else");
+                    isTestComplete=false;
+
+                    checkQuestionNo(counter);
 
 
-        pieView.setOnProgressListener(new ProgressPieView.OnProgressListener() {
+                }
+            }
+        });
+
+
+      /*  pieView.setOnProgressListener(new ProgressPieView.OnProgressListener() {
             @Override
             public void onProgressChanged(int progress, int max) {
                 int counter = progress;
                 if(progress%35==0){
                     pieView.setTextSize(28);
                     pieView.setShowText(true);
-                    pieView.setText(String.valueOf(progress/35));
+                    pieView.setText(String.valueOf(progress/35)+"s");
                 }
 
             }
@@ -182,21 +208,40 @@ public class QuestionActivity extends ActionBarActivity {
                     Intent i = new Intent(QuestionActivity.this,FinishActivity.class);
                     startActivity(i);
                     finish();
-               /* }else {
+               *//* }else {
                     checkQuestionNo(counter);
 
 
-                }*/
+                }*//*
 
 
             }
-        });
+        });*/
 
         time_text  =  Integer.valueOf(Prefs.getString("Time_text",""));
         time_image =  Integer.valueOf(Prefs.getString("Time_image", ""));
         time_audio =  Integer.valueOf(Prefs.getString("Time_audio", ""));
 
 
+    }
+
+
+    private void setclock(){
+//3600000
+        new CountDownTimer(120000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                txtSecond.setText(String.format("%02d", ((millisUntilFinished/1000) % 60)));
+                txtMinute.setText(String.format("%02d", ((millisUntilFinished/1000) % 3600) / 60));
+                txtHour.setText(String.format("%02d", (millisUntilFinished/1000) / 3600));
+            }
+            public void onFinish() {
+                Toast.makeText(QuestionActivity.this,"Questions are finished :)",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(QuestionActivity.this,FinishActivity.class);
+                startActivity(i);
+                finish();
+            }
+        }.start();
     }
 
 
