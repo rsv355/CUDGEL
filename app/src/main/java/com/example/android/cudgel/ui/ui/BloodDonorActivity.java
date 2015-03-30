@@ -73,7 +73,7 @@ public class BloodDonorActivity extends ActionBarActivity {
         txtSear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(BloodDonorActivity.this,BloodregisterActivity.class);
+                Intent i = new Intent(BloodDonorActivity.this,BloodSearchActivity.class);
                 startActivity(i);
             }
         });
@@ -81,7 +81,7 @@ public class BloodDonorActivity extends ActionBarActivity {
         txtReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(BloodDonorActivity.this,BloodSearchActivity.class);
+                Intent i = new Intent(BloodDonorActivity.this,BloodregisterActivity.class);
                 startActivity(i);
             }
         });
