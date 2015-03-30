@@ -8,17 +8,13 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.pixplicity.easyprefs.library.Prefs;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -75,7 +71,7 @@ public class SplashActivity extends Activity {
 
                 switch (pos){
                     case 0:
-                        Intent i0 = new Intent(SplashActivity.this,FeedbackActivity.class);
+                        Intent i0 = new Intent(SplashActivity.this,BloodDonorActivity.class);
                         startActivity(i0);
                         break;
                     case 1:

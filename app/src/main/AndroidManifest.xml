@@ -42,7 +42,7 @@
             android:label="CUDGEL"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.ui.FeedbackActivity"
+            android:name=".ui.ui.BloodDonorActivity"
             android:label="CUDGEL"
             android:screenOrientation="portrait" />
         <activity
