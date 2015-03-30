@@ -93,7 +93,7 @@ public class SplashActivity extends Activity {
                         break;
                     case 4:
 
-                        String text="Please Check out this amazing Quiz app, \n https://play.google.com/store/apps/details?id=com.quizup.core";
+                        String text="Please Check out this amazing Quiz app, \n https://play.google.com/store/apps/details?id=com.android.cudgel";
 
                         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                         sharingIntent.setType("text/plain");
