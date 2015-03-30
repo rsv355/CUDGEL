@@ -1,6 +1,7 @@
 package com.example.android.cudgel.ui.ui;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.android.cudgel.R;
 
@@ -17,6 +19,13 @@ public class StartMain extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_main);
+
+        TextView tt1= (TextView)findViewById(R.id.tt1);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/waltograph.ttf");
+        tt1.setTypeface(custom_font);
+
+        tt1.setText("CUDGEL");
+
 
         CountDownTimer countDownTimer;
         countDownTimer = new MyCountDownTimer2(5000, 5000); // 1000 = 1s

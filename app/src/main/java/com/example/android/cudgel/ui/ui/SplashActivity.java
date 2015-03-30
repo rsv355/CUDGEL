@@ -38,7 +38,7 @@ public class SplashActivity extends Activity {
     ProgressDialog dialog;
     private CircleMenuLayout mCircleMenuLayout;
 
-    private String[] mItemTexts = new String[] { "Feedback", "Result", "Settings",
+    private String[] mItemTexts = new String[] { "Blood Bank", "Result", "Settings",
             "Reports", "Share App", "About Us" };
     private int[] mItemImgs = new int[] { R.drawable.icon_feedback,
             R.drawable.icon_result, R.drawable.icon_setting,
@@ -140,7 +140,7 @@ public class SplashActivity extends Activity {
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/waltograph.ttf");
         tx.setTypeface(custom_font);
         download.setTypeface(custom_font);
-        tx.setText("Quick Quiz");
+        tx.setText("CUDGEL");
         tx.clearAnimation();
         tx.startAnimation(anim);
 
@@ -166,7 +166,7 @@ public class SplashActivity extends Activity {
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/waltograph.ttf");
         tx.setTypeface(custom_font);
-        tx.setText("Quick Quiz");
+        tx.setText("CUDGEL");
         tx.clearAnimation();
         tx.startAnimation(anim);
 
