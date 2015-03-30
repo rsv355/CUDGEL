@@ -54,6 +54,17 @@
             android:label="CUDGEL"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat.Light.Dialog.FixedSize" />
+
+
+        <activity
+            android:name=".ui.ui.BloodregisterActivity"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ui.BloodSearchActivity"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.ui.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

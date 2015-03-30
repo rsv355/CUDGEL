@@ -45,7 +45,7 @@ public class BloodSearchActivity extends ActionBarActivity {
         toolbar.setNavigationIcon(R.drawable.icon_back);
 
               if (toolbar != null) {
-            toolbar.setTitle("About Us");
+                  toolbar.setTitle("Blood Bank");
             setSupportActionBar(toolbar);
         }
 

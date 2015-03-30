@@ -114,7 +114,7 @@ public class QuestionActivity extends ActionBarActivity {
 
 
         if (toolbar != null) {
-            toolbar.setTitle("Quick Quiz");
+            toolbar.setTitle("CUDGEL");
             setSupportActionBar(toolbar);
         }
 

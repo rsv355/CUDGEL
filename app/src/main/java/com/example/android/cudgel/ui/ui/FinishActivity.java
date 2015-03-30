@@ -53,7 +53,7 @@ public class FinishActivity extends ActionBarActivity {
         toolbar.setNavigationIcon(R.drawable.icon_back);
 
               if (toolbar != null) {
-            toolbar.setTitle("Quick Quiz");
+                  toolbar.setTitle("CUDGEL");
             setSupportActionBar(toolbar);
         }
 

@@ -60,7 +60,7 @@ public class StartTestActivity extends ActionBarActivity {
         btnStart= (GeniusButton)findViewById(R.id.btnStart);
 
         if (toolbar != null) {
-            toolbar.setTitle("Quick Quiz");
+            toolbar.setTitle("CUDGEL");
             setSupportActionBar(toolbar);
         }
 

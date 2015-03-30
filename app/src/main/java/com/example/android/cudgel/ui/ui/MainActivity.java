@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
 
 
         if (toolbar != null) {
-            toolbar.setTitle("Quick Quiz");
+            toolbar.setTitle("CUDGEL");
             setSupportActionBar(toolbar);
         }
 

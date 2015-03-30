@@ -1,6 +1,7 @@
 package com.example.android.cudgel.ui.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -21,17 +22,12 @@ import java.util.ArrayList;
 
 public class BloodDonorActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    private GeniusButton btnSend;
+
     ProgressDialog dialog;
     public static int i;
-    private EditText etPassword;
-    private EditText etTestid;
-    private ListView listview;
-    private TextView txtCounter;
-    private QuestionDetails ques_d;
-    public static ArrayList<QuestionDetails> Ques_det;
-    int tempParseSize=0;
-    GeniusEditText etName,etEmail,etFeedback;
+
+    private TextView txtSear,txtReg;
+
 
 
 
@@ -70,7 +66,25 @@ public class BloodDonorActivity extends ActionBarActivity {
 
 
     void initView(){
+        txtSear = (TextView)findViewById(R.id.txtSear);
+        txtReg = (TextView)findViewById(R.id.txtReg);
 
+
+        txtSear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BloodDonorActivity.this,BloodregisterActivity.class);
+                startActivity(i);
+            }
+        });
+
+        txtReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BloodDonorActivity.this,BloodSearchActivity.class);
+                startActivity(i);
+            }
+        });
 }
 
     @Override
