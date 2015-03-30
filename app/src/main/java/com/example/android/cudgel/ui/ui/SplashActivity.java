@@ -40,7 +40,7 @@ public class SplashActivity extends Activity {
 
     private String[] mItemTexts = new String[] { "Blood Bank", "Result", "Settings",
             "Reports", "Share App", "About Us" };
-    private int[] mItemImgs = new int[] { R.drawable.icon_feedback,
+    private int[] mItemImgs = new int[] { R.drawable.ic_blood,
             R.drawable.icon_result, R.drawable.icon_setting,
             R.drawable.icon_reports, R.drawable.icon_share,
             R.drawable.icon_aboutus };
