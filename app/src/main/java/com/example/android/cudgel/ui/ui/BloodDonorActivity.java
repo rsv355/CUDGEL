@@ -33,9 +33,6 @@ public class BloodDonorActivity extends ActionBarActivity {
     int tempParseSize=0;
     GeniusEditText etName,etEmail,etFeedback;
 
-    final String username = "softeng.krishna@gmail.com";
-    final String password = "rinkuamit";
-
 
 
     @Override
@@ -48,7 +45,7 @@ public class BloodDonorActivity extends ActionBarActivity {
         toolbar.setNavigationIcon(R.drawable.icon_back);
 
               if (toolbar != null) {
-            toolbar.setTitle("Blood Donor");
+            toolbar.setTitle("Blood Bank");
             setSupportActionBar(toolbar);
         }
 

@@ -7,6 +7,7 @@
     <include layout="@layout/app_bar" />
 
   <LinearLayout
+      android:background="#E68A00"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_weight="1">
@@ -15,7 +16,7 @@
           android:textSize="28sp"
           android:textStyle="bold"
           android:gravity="center"
-          android:text="REGISTER"
+          android:text="REGISTER DONOR"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:layout_weight="1"/>
@@ -23,6 +24,7 @@
 
 
     <LinearLayout
+        android:background="#47B2B2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -32,7 +34,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_gravity="center_vertical"
-        android:text="SEARCH"
+        android:text="SEARCH DONOR"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
