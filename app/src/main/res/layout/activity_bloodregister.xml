@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:genius="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <include layout="@layout/app_bar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <net.qiujuer.genius.widget.GeniusEditText
+            android:id="@+id/etblddonorname"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            genius:g_theme="@array/Sandstone"
+            android:hint="Enter Blood donor name"
+
+            genius:g_fieldStyle="box"
+            genius:g_showTitle="true"
+            genius:g_titleTextColor="#ff1fedff"
+            genius:g_titleTextSize="12sp"
+            genius:g_titlePaddingTop="5dp"
+            genius:g_titlePaddingLeft="5dp"
+            />
+
+        <net.qiujuer.genius.widget.GeniusEditText
+            android:id="@+id/etMob"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            genius:g_theme="@array/Sandstone"
+            android:hint="Enter Mobile no."
+
+            genius:g_fieldStyle="box"
+            genius:g_showTitle="true"
+            genius:g_titleTextColor="#ff1fedff"
+            genius:g_titleTextSize="12sp"
+            genius:g_titlePaddingTop="5dp"
+            genius:g_titlePaddingLeft="5dp"
+            />
+    <net.qiujuer.genius.widget.GeniusEditText
+        android:id="@+id/etMob2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_theme="@array/Sandstone"
+        android:hint="Enter alternate Mobile no."
+
+        genius:g_fieldStyle="box"
+        genius:g_showTitle="true"
+        genius:g_titleTextColor="#ff1fedff"
+        genius:g_titleTextSize="12sp"
+        genius:g_titlePaddingTop="5dp"
+        genius:g_titlePaddingLeft="5dp"
+        />
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="3"
+            android:textColor="#ff4181ff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Select Blood Group"/>
+        <Spinner
+            android:layout_weight="2"
+            android:id="@+id/spBlood"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"></Spinner>
+        </LinearLayout>
+
+    <net.qiujuer.genius.widget.GeniusEditText
+        android:id="@+id/etArea"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_theme="@array/Sandstone"
+        android:hint="Enter resident area"
+
+        genius:g_fieldStyle="box"
+        genius:g_showTitle="true"
+        genius:g_titleTextColor="#ff1fedff"
+        genius:g_titleTextSize="12sp"
+        genius:g_titlePaddingTop="5dp"
+        genius:g_titlePaddingLeft="5dp"
+        />
+
+    <net.qiujuer.genius.widget.GeniusEditText
+        android:id="@+id/etCity"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_theme="@array/Sandstone"
+        android:hint="Enter resident city"
+
+        genius:g_fieldStyle="box"
+        genius:g_showTitle="true"
+        genius:g_titleTextColor="#ff1fedff"
+        genius:g_titleTextSize="12sp"
+        genius:g_titlePaddingTop="5dp"
+        genius:g_titlePaddingLeft="5dp"
+        />
+
+    <net.qiujuer.genius.widget.GeniusEditText
+        android:id="@+id/etState"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_theme="@array/Sandstone"
+        android:hint="Enter resident State"
+
+        genius:g_fieldStyle="box"
+        genius:g_showTitle="true"
+        genius:g_titleTextColor="#ff1fedff"
+        genius:g_titleTextSize="12sp"
+        genius:g_titlePaddingTop="5dp"
+        genius:g_titlePaddingLeft="5dp"
+        />
+
+    <net.qiujuer.genius.widget.GeniusButton
+        android:id="@+id/btnSave"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="SAVE"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_delayClick="true"
+        genius:g_touchEffect="move"
+        genius:g_theme="@array/Marsala"
+        genius:g_touchEffectColor="#ff4181ff" />
+</LinearLayout>
+    </ScrollView>
+</LinearLayout>
