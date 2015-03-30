@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:genius="http://schemas.android.com/apk/res-auto"
+    xmlns:ppv="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+   tools:context=".MainActivity">
+
+    <include layout="@layout/app_bar"/>
+
+   <!-- <LinearLayout
+        android:id="@+id/linearemp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Sorry, no result found" />
+    </LinearLayout>-->
+
+<ListView
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/listResult"></ListView>
+
+
+
+</LinearLayout>

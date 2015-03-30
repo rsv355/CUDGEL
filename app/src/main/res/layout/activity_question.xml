@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:genius="http://schemas.android.com/apk/res-auto"
+    xmlns:ppv="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+   tools:context=".MainActivity">
+
+    <include layout="@layout/app_bar"/>
+    <LinearLayout
+        android:id="@+id/linearBottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <net.qiujuer.genius.widget.GeniusButton
+            android:id="@+id/btnNext"
+            android:text="NEXT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            genius:g_delayClick="true"
+            genius:g_touchEffect="move"
+            genius:g_theme="@array/Marsala"
+            genius:g_touchEffectColor="#ff4181ff" />
+
+
+    </LinearLayout>
+
+    <com.filippudak.ProgressPieView.ProgressPieView
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:id="@+id/progressPieViewXml"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_height="80dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="28sp"
+        ppv:ppvInverted="true"
+        android:text="0"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/progressPieViewXml"
+        android:layout_above="@id/linearBottom"
+        android:layout_height="match_parent"
+        android:footerDividersEnabled="false"
+        android:id="@+id/listview"></ListView>
+
+</RelativeLayout>
