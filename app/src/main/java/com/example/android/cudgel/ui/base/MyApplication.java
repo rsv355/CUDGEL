@@ -14,7 +14,7 @@ public class MyApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        Parse.initialize(this, "fi5ao9DdEXnduQPpaO9t3kP8dxxGfK7lhyzihAD1", "5QQMgxwAp46TpYqwxXOWPV63Xy0wj17voNUD2Yra");
+        Parse.initialize(this, "ha9xuGetKeAc9qNh4ST2BP0QBNRkFtF8jcT305xX", "ivbh23bJ1OKzBxcnbmbEH91dFBj5tSBCBG74MAaG");
         ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();
 

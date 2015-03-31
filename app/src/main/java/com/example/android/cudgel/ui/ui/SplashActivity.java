@@ -228,7 +228,7 @@ private void processStart2(){
      //   dialog = ProgressDialog.show(SplashActivity.this, "Please Wait", "Fetching data from server..", true);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Question_master");
-        query.whereEqualTo("IsActive", true);
+        //query.whereEqualTo("IsActive", true);
         query.findInBackground(new FindCallback<ParseObject>() {
 
             @Override
@@ -241,10 +241,7 @@ private void processStart2(){
                     //Toast.makeText(StartTestActivity.this, String.valueOf(parseObjects.get(i).get("Test_id")), Toast.LENGTH_LONG).show();
                     Prefs.putString("TestID", String.valueOf(parseObjects.get(0).get("Test_id")));
                     Prefs.putString("Password",String.valueOf(parseObjects.get(0).get("Password")));
-
-                    Prefs.putString("Time_text", String.valueOf(parseObjects.get(0).get("Time_text")));
-                    Prefs.putString("Time_image",String.valueOf(parseObjects.get(0).get("Time_image")));
-                    Prefs.putString("Time_audio",String.valueOf(parseObjects.get(0).get("Time_audio")));
+                    Prefs.putString("Tot_Time",String.valueOf(parseObjects.get(0).get("Tot_Time")));
                     Prefs.putString("Tot_Question",String.valueOf(parseObjects.get(0).get("Tot_Question")));
 
                     processStart2();

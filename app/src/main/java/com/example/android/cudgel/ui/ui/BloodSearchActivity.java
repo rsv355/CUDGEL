@@ -27,10 +27,15 @@ import com.example.android.cudgel.ui.base.DBAdapter;
 import com.example.android.cudgel.ui.base.QuestionDetails;
 import com.example.android.cudgel.ui.model.BloodGroup;
 import com.example.android.cudgel.ui.model.CurrentTest;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import net.qiujuer.genius.widget.GeniusButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class BloodSearchActivity extends ActionBarActivity {
@@ -67,10 +72,12 @@ public class BloodSearchActivity extends ActionBarActivity {
             }
         });
 
+
+
         spBlood = (Spinner)findViewById(R.id.spBlood);
         list = (ListView)findViewById(R.id.list);
 
-
+        processDowloadandSQLinsert();
 
         spBlood.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -127,13 +134,9 @@ public class BloodSearchActivity extends ActionBarActivity {
         adapter.notifyDataSetChanged();
 
 
-      /*  if(resultList.size()!=0){
-      //      linearemp.setVisibility(View.GONE);
-        }*/
 
 
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+     /*   list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -141,17 +144,51 @@ public class BloodSearchActivity extends ActionBarActivity {
                 Intent i = new Intent(BloodSearchActivity.this,CustomResultDialogActivity.class);
                 i.putExtra("pos",position);
                 startActivity(i);
-/*
 
-               final Dialog dialog = new Dialog(ResultActivity.this);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.custom_dialog);
-                dialog.show();*/
+            }
+        });*/
+
+    }
+
+
+    private void processDowloadandSQLinsert(  ){
+
+        dialog= ProgressDialog.show(this,"Please Wait","downloading latest data from server...",true);
+        dialog.setCancelable(false);
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("BLOOD_TABLE");
+        // query.whereEqualTo("DATABASE_VERSION", "ALL3");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObject, ParseException e) {
+                if (e == null) {
+                    // check for database
+                    // check for database
+                    db.open();
+                    db.deleteRecordBLOOD();
+                    for (int i = 0; i < parseObject.size(); i++) {
+
+                        db.insertRecordBLOOD(parseObject.get(i).getString("name"),parseObject.get(i).getString("mob1"), parseObject.get(i).getString("mob2"), parseObject.get(i).getString("blood_group")
+                                , parseObject.get(i).getString("area"), parseObject.get(i).getString("city"), parseObject.get(i).getString("state")
+                            );
+
+                    }
+
+                    db.close();
+
+
+                    dialog.dismiss();
+
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error to fetch details !!!", Toast.LENGTH_SHORT).show();
+
+                }
 
             }
         });
-
     }
+
 
 
 
@@ -193,20 +230,19 @@ public class BloodSearchActivity extends ActionBarActivity {
             TextView txtname = (TextView)convertView.findViewById(R.id.txtname);
             TextView txtbloodgroup = (TextView)convertView.findViewById(R.id.txtbloodgroup);
 
-/*
-            txttestID.setText(result.get(position).Test_id.trim());
-            txtdate.setText(result.get(position).Test_date.trim());
 
-            if(result.get(position).Result.trim().equalsIgnoreCase("Pass")){
-                imgPassorFail.setImageResource(R.drawable.icon_small_pass);
+            txtname.setText(result.get(position).name.trim());
+            txtbloodgroup.setText(result.get(position).blood_group.trim());
+
+            if(result.get(position).mob2 == null ){
+                txtMob.setText(result.get(position).mob1.trim());
             }
             else{
-                imgPassorFail.setImageResource(R.drawable.icon_small_fail);
-            }*/
+                txtMob.setText(result.get(position).mob1.trim()+" , "+result.get(position).mob2.trim());
+            }
 
 
-
-
+            txtArea.setText(result.get(position).area.trim() + " , " + result.get(position).city.trim() + " , " + result.get(position).state.trim());
 
             return convertView;
         }

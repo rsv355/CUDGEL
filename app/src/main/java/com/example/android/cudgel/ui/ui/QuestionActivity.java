@@ -327,16 +327,7 @@ int total_wrong_answer=0;
         }
     }
 
-/*    initialValues.put("Test_id", Test_id);//1
-    initialValues.put("Test_date", Test_date);//2
-    initialValues.put("Result", Result);//3
-    initialValues.put("Total_ques", Total_ques);//4
 
-    initialValues.put("Correct_ques", Correct_ques);//5
-    initialValues.put("Wrong_ques", Wrong_ques);//6
-
-    initialValues.put("Answered", Answered);//7
-    initialValues.put("UnAnswered", UnAnswered);//8*/
 
     if(isTestComplete) {
         db.open();
@@ -350,25 +341,7 @@ int total_wrong_answer=0;
                 String.valueOf(obj.UnAnswered));
         db.close();
     }
-//    isTestComplete=true;
 
-    /*db.open();
-    db.deleteRecord();
-    for (int i = 0; i < parseObject.size(); i++) {
-
-        db.insertRecord(parseObject.get(i).getString("CATG_ID"), parseObject.get(i).getString("WORD"), parseObject.get(i).getString("PRON_ENG")
-                , parseObject.get(i).getString("MEANING_HIN"), parseObject.get(i).getString("MEANING2"), parseObject.get(i).getString("MEANING3")
-                , parseObject.get(i).getString("MEANING4"), parseObject.get(i).getString("MEANING5"), parseObject.get(i).getString("EX1")
-                , parseObject.get(i).getString("EX2"), parseObject.get(i).getString("EX3"), parseObject.get(i).getString("EX4")
-                , parseObject.get(i).getString("EX5"), parseObject.get(i).getString("MATCH1"), parseObject.get(i).getString("MATCH2")
-                , parseObject.get(i).getString("MATCH3"), parseObject.get(i).getString("MATCH4"), parseObject.get(i).getString("MATCH5")
-                , parseObject.get(i).getString("HIN_EX1"), parseObject.get(i).getString("HIN_EX2"), parseObject.get(i).getString("HIN_EX3")
-                , parseObject.get(i).getString("HIN_EX4"), parseObject.get(i).getString("HIN_EX5")
-        );
-        //   db.insertContact("dd",3);
-    }
-
-    db.close();*/
 }
 
 
