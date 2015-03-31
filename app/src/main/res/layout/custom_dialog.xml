@@ -85,7 +85,7 @@
                 android:id="@+id/txtTotQuestion"/>
         </LinearLayout>
 
-        <LinearLayout
+   <!--     <LinearLayout
             android:gravity="center"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -110,8 +110,8 @@
                 android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtQuestAns"/>
-        </LinearLayout>
-        <LinearLayout
+        </LinearLayout>-->
+       <!-- <LinearLayout
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -136,7 +136,7 @@
             android:textSize="14sp"
             android:layout_height="wrap_content"
             android:id="@+id/txtQuestUnAns"/>
-    </LinearLayout>
+    </LinearLayout>-->
         <LinearLayout
             android:gravity="center"
             android:orientation="horizontal"

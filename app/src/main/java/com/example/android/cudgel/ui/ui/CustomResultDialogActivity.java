@@ -47,8 +47,8 @@ public class CustomResultDialogActivity extends ActionBarActivity {
 
 
         txtTotQuestion  = (TextView)findViewById(R.id.txtTotQuestion);
-        txtQuestAns = (TextView)findViewById(R.id.txtQuestAns);
-        txtQuestUnAns = (TextView)findViewById(R.id.txtQuestUnAns);
+       // txtQuestAns = (TextView)findViewById(R.id.txtQuestAns);
+       // txtQuestUnAns = (TextView)findViewById(R.id.txtQuestUnAns);
         txtQuestCorrAns = (TextView)findViewById(R.id.txtQuestCorrAns);
         txtQuestWronAns = (TextView)findViewById(R.id.txtQuestWronAns);
 
@@ -60,8 +60,8 @@ public class CustomResultDialogActivity extends ActionBarActivity {
 
 
         txtTotQuestion.setText(""+ResultActivity.resultList.get(pos).Total_ques);
-        txtQuestAns.setText(""+ResultActivity.resultList.get(pos).Answered);
-        txtQuestUnAns.setText(""+ResultActivity.resultList.get(pos).UnAnswered);
+      //  txtQuestAns.setText(""+ResultActivity.resultList.get(pos).Answered);
+      //  txtQuestUnAns.setText(""+ResultActivity.resultList.get(pos).UnAnswered);
         txtQuestCorrAns.setText(""+ResultActivity.resultList.get(pos).Correct_ques);
         txtQuestWronAns.setText(""+ResultActivity.resultList.get(pos).Wrong_ques);
 
