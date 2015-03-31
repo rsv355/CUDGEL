@@ -86,6 +86,7 @@
             android:layout_weight="2"
             android:id="@+id/spBlood"
             android:layout_width="0dp"
+            android:entries="@array/blood_grp"
             android:layout_height="match_parent"></Spinner>
         </LinearLayout>
 
