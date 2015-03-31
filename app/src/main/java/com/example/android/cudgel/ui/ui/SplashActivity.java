@@ -35,7 +35,7 @@ public class SplashActivity extends Activity {
     private CircleMenuLayout mCircleMenuLayout;
 
     private String[] mItemTexts = new String[] { "Blood Bank", "Result", "Settings",
-            "Reports", "Share App", "About Us" };
+            "Clubs", "Share App", "About Us" };
     private int[] mItemImgs = new int[] { R.drawable.ic_blood,
             R.drawable.icon_result, R.drawable.icon_setting,
             R.drawable.icon_reports, R.drawable.icon_share,
@@ -84,7 +84,7 @@ public class SplashActivity extends Activity {
                         startActivity(i2);
                         break;
                     case 3:
-                        Intent i3 = new Intent(SplashActivity.this,ReportsActivity.class);
+                        Intent i3 = new Intent(SplashActivity.this,ClubsActivity.class);
                         startActivity(i3);
                         break;
                     case 4:

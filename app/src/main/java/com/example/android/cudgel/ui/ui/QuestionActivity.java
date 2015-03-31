@@ -480,7 +480,8 @@ void fillcheckbox(int counter){
 
 private void setclock(){
 //3600000
-        new CountDownTimer(120000, 1000) {
+    //120000
+        new CountDownTimer(60000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 txtSecond.setText(String.format("%02d", ((millisUntilFinished/1000) % 60)));

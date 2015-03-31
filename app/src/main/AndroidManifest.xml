@@ -46,7 +46,7 @@
             android:label="CUDGEL"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.ui.ReportsActivity"
+            android:name=".ui.ui.ClubsActivity"
             android:label="CUDGEL"
             android:screenOrientation="portrait" />
         <activity
