@@ -37,10 +37,10 @@ public class DBAdapter {
 
     private static final String BLOOD_TABLE =
             "create table BLOOD_TABLE (_id integer primary key autoincrement, "
-                    + "name text ," +
-                    "mob1 text ," +
+                    + "name text," +
+                    "mob1 text," +
                     "mob2 text," +
-                    "blood_group text  ," +
+                    "blood_group text," +
                     "area text," +
                     "city text," +
                     "state text );";
@@ -162,7 +162,7 @@ public class DBAdapter {
 
         Log.e("insert in blood ","ok");
 
-        return db.insert(BLOOD_TABLE, null, initialValues);
+        return db.insert("BLOOD_TABLE", null, initialValues);
     }
 
 
@@ -177,7 +177,7 @@ public class DBAdapter {
     public void deleteRecordBLOOD( )
     {
         Log.e("record ddelted ","ok");
-        db.execSQL("delete  from "+ BLOOD_TABLE);
+        db.execSQL("delete  from BLOOD_TABLE");
 
     }
 
