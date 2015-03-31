@@ -199,13 +199,7 @@ public class DBAdapter {
         return cursor;
     }
 
-    public Cursor getCategory(String CatgId) throws SQLException
-    {
-        String selectQuery = "SELECT * FROM Result WHERE CATG_ID ="+"\""+CatgId.toString().trim()+"\"";
-        Cursor cursor = db.rawQuery(selectQuery, null);
 
-        return cursor;
-    }
 
     public Cursor getAllResult() throws SQLException
     {
@@ -223,13 +217,7 @@ public class DBAdapter {
         return cursor;
     }
 
-    public Cursor getAllHistoryWord() throws SQLException
-    {
-        String selectQuery = "SELECT * FROM D_Word_History";
-        Cursor cursor = db.rawQuery(selectQuery, null);
 
-        return cursor;
-    }
 
 
 /*
