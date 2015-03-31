@@ -147,7 +147,7 @@ public class StartTestActivity extends ActionBarActivity {
     private void fetchQuestiondetails()
     {
 
-        dialog= ProgressDialog.show(this,"Please Wait","downloading data from server...",true);
+        dialog= ProgressDialog.show(this,"Please Wait","downloading data from server",true);
         dialog.setCancelable(false);
         Ques_det = new ArrayList<QuestionDetails>();
 

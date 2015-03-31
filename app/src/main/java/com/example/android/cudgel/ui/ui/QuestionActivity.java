@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -33,6 +34,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 
 public class QuestionActivity extends ActionBarActivity {
@@ -40,13 +42,15 @@ public class QuestionActivity extends ActionBarActivity {
     private Toolbar toolbar;
 
     ProgressDialog dialog;
-
+    boolean isFirsttime=false;
     net.qiujuer.genius.widget.GeniusButton btnNext,btnPrevious;
     private ArrayList<QuestionDetails> Ques_det;
     int counter=0;
     net.qiujuer.genius.widget.GeniusCheckBox optA,optB,optC,optD;
 
-    public static ArrayList<String> selectoption=new ArrayList<String>();
+    public static HashMap<Integer,String> optionlist = new HashMap<Integer,String>();
+
+    public static ArrayList<String> selectoptionlist=new ArrayList<String>();
 
     String selectedOption="NA";
     DBAdapter db;
@@ -164,9 +168,10 @@ public class QuestionActivity extends ActionBarActivity {
 
 
 
-
+        optionlist = new HashMap<Integer,String>();
         setclock();
         setupQuestion(counter);
+
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,7 +181,9 @@ public class QuestionActivity extends ActionBarActivity {
                     counter=StartTestActivity.Ques_det.size()-1;
 
                 }else {
+                    //optionlist.put(counter-1,selectedOption);
                     setupQuestion(counter);
+
                 }
 
             }
@@ -186,13 +193,68 @@ public class QuestionActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 counter-=1;
+                isFirsttime=true;
                 if(counter<0){
                     counter=0;
                     Toast.makeText(QuestionActivity.this,"You are at the first Question",Toast.LENGTH_LONG).show();
                 }else {
-
+                   // optionlist.put(counter-1,selectedOption);
                     setupQuestion(counter);
+
                 }
+            }
+        });
+
+
+        Button btn = (Button)findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(int i=0;i<optionlist.size();i++){
+                    Log.e("Values:-",optionlist.get(i));
+                }
+            }
+        });
+
+        optA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedOption="A";
+                optB.setChecked(false);
+                optC.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "A");
+            }
+        });
+        optB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedOption="B";
+                optA.setChecked(false);
+                optC.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "B");
+            }
+        });
+        optC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedOption="C";
+                optB.setChecked(false);
+                optA.setChecked(false);
+                optD.setChecked(false);
+                optionlist.put(counter, "C");
+            }
+        });
+        optD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedOption="D";
+                optB.setChecked(false);
+                optC.setChecked(false);
+                optA.setChecked(false);
+                optionlist.put(counter, "D");
             }
         });
 
@@ -200,6 +262,7 @@ public class QuestionActivity extends ActionBarActivity {
     }
 
  private void setupQuestion(int counter){
+
      if(counter==0){
             btnPrevious.setVisibility(View.GONE);
             btnNext.setVisibility(View.VISIBLE);
@@ -216,9 +279,90 @@ public class QuestionActivity extends ActionBarActivity {
      txtOptB.setText(StartTestActivity.Ques_det.get(counter).optB.trim());
      txtOptC.setText(StartTestActivity.Ques_det.get(counter).optC.trim());
      txtOptD.setText(StartTestActivity.Ques_det.get(counter).optD.trim());
+
+
+     fillcheckbox(counter);
  }
 
+void fillcheckbox(int counter){
 
+    optA.setChecked(false);
+    optB.setChecked(false);
+    optC.setChecked(false);
+    optD.setChecked(false);
+
+
+    if(optionlist.get(counter)==null){
+        //optionlist.put(counter, selectedOption);
+    }
+    else{
+        if (optionlist.get(counter).equalsIgnoreCase("A")) {
+            optA.setChecked(true);
+            optB.setChecked(false);
+            optC.setChecked(false);
+            optD.setChecked(false);
+            optionlist.put(counter, "A");
+
+        } else if (optionlist.get(counter).equalsIgnoreCase("B")) {
+            optA.setChecked(false);
+            optB.setChecked(true);
+            optC.setChecked(false);
+            optD.setChecked(false);
+            optionlist.put(counter, "B");
+
+        } else if (optionlist.get(counter).equalsIgnoreCase("C")) {
+            optA.setChecked(false);
+            optB.setChecked(false);
+            optC.setChecked(true);
+            optD.setChecked(false);
+            optionlist.put(counter, "C");
+
+        } else if (optionlist.get(counter).equalsIgnoreCase("D")) {
+            optA.setChecked(false);
+            optB.setChecked(false);
+            optC.setChecked(false);
+            optD.setChecked(true);
+            optionlist.put(counter, "D");
+
+        }
+    }
+
+   /* if(isFirsttime) {
+
+                        if (optionlist.get(counter).equalsIgnoreCase("A")||optionlist.get(counter) == null) {
+                            optA.setChecked(true);
+                            optB.setChecked(false);
+                            optC.setChecked(false);
+                            optD.setChecked(false);
+
+                        } else if (optionlist.get(counter).equalsIgnoreCase("B")) {
+                            optA.setChecked(false);
+                            optB.setChecked(true);
+                            optC.setChecked(false);
+                            optD.setChecked(false);
+
+                        } else if (optionlist.get(counter).equalsIgnoreCase("C")) {
+                            optA.setChecked(false);
+                            optB.setChecked(false);
+                            optC.setChecked(true);
+                            optD.setChecked(false);
+
+                        } else if (optionlist.get(counter).equalsIgnoreCase("D")) {
+                            optA.setChecked(false);
+                            optB.setChecked(false);
+                            optC.setChecked(false);
+                            optD.setChecked(true);
+
+                        } else {
+                            optionlist.put(counter, selectedOption);
+                        }
+
+
+    }
+
+
+    optionlist.put(counter, selectedOption);*/
+}
 
 
 
