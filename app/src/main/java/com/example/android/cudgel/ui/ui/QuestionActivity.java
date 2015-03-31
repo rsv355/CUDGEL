@@ -218,10 +218,10 @@ public class QuestionActivity extends ActionBarActivity {
             }
         });*/
 
-        time_text  =  Integer.valueOf(Prefs.getString("Time_text",""));
+       /* time_text  =  Integer.valueOf(Prefs.getString("Time_text",""));
         time_image =  Integer.valueOf(Prefs.getString("Time_image", ""));
         time_audio =  Integer.valueOf(Prefs.getString("Time_audio", ""));
-
+*/
 
     }
 
@@ -463,9 +463,9 @@ public void viewdata(ArrayList<QuestionDetails> Ques_detlobjects) {
            Log.e("Select value",""+selectedOption);
            selectedOption="NA";
 
-           if(values.get(position).Q_type.equalsIgnoreCase("text")){
+          /* if(values.get(position).Q_type.equalsIgnoreCase("text")){
                finaltime=time_text;
-           }
+           }*/
 
 
           /* pieView.setProgress(0);

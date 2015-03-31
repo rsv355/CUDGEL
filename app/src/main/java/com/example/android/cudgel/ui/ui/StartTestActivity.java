@@ -168,18 +168,17 @@ public class StartTestActivity extends ActionBarActivity {
                         Log.e("quesiotn", String.valueOf(((ParseObject)parseObjects.get(i)).get("Question")));
 
                        QuestionDetails newobj =  new QuestionDetails();
+
                         newobj.Question = String.valueOf(((ParseObject)parseObjects.get(i)).get("Question"));
                         newobj.Correct_opt = String.valueOf(((ParseObject)parseObjects.get(i)).get("Correct_opt"));
 
                         newobj.Test_id=String.valueOf(((ParseObject)parseObjects.get(i)).get("Test_id"));
                         newobj.Q_id=String.valueOf(((ParseObject)parseObjects.get(i)).get("Q_id"));
-                        newobj.Q_type=String.valueOf(((ParseObject)parseObjects.get(i)).get("Q_type"));
+
                         newobj.optA=String.valueOf(((ParseObject)parseObjects.get(i)).get("optA"));
                         newobj.optB=String.valueOf(((ParseObject)parseObjects.get(i)).get("optB"));
                         newobj.optC=String.valueOf(((ParseObject)parseObjects.get(i)).get("optC"));
                         newobj.optD=String.valueOf(((ParseObject)parseObjects.get(i)).get("optD"));
-                        newobj.Q_audio_url=String.valueOf(((ParseObject)parseObjects.get(i)).get("Q_audio_url"));
-                        newobj.Q_image_url=String.valueOf(((ParseObject)parseObjects.get(i)).get("Q_image_url"));
 
 
 

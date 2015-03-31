@@ -16,8 +16,6 @@ public class QuestionDetails {
     @SerializedName("Q_id")
     public String Q_id;
 
-    @SerializedName("Q_type")
-    public String Q_type;
 
     @SerializedName("optA")
     public String optA;
@@ -31,11 +29,7 @@ public class QuestionDetails {
     @SerializedName("Correct_opt")
     public String Correct_opt;
 
-    @SerializedName("Q_audio_url")
-    public String Q_audio_url;
 
-    @SerializedName("Q_image_url")
-    public String Q_image_url;
 
     @SerializedName("Question")
     public String Question;
@@ -48,7 +42,7 @@ public class QuestionDetails {
 
      this.Q_id=obj.Q_id;
 
-     this.Q_type=obj.Q_type;
+
 
      this.optA=obj.optA;
 
@@ -60,9 +54,7 @@ public class QuestionDetails {
 
      this.Correct_opt=obj.Correct_opt;
 
-     this.Q_audio_url=obj.Q_audio_url;
 
-     this.Q_image_url=obj.Q_image_url;
 
      this.Question=obj.Question;
 
