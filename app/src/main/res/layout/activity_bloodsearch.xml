@@ -2,17 +2,46 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".MainActivity">
     <include layout="@layout/app_bar" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <TextView
-        android:padding="16dp"
-        android:id="@+id/txt1"
-        android:text="hlo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    </ScrollView>
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="3"
+            android:textColor="#ff4181ff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Select Blood Group"/>
+        <Spinner
+            android:layout_weight="2"
+            android:id="@+id/spBlood"
+            android:layout_width="0dp"
+            android:entries="@array/blood_grp"
+            android:layout_height="match_parent"></Spinner>
+    </LinearLayout>
+
+<View
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#494949"
+    />
+    <ListView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
 </LinearLayout>

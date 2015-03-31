@@ -35,6 +35,16 @@ public class DBAdapter {
                        "Answered text," +
                       "UnAnswered text );";
 
+    private static final String BLOOD_TABLE =
+            "create table BLOOD_TABLE (_id integer primary key autoincrement, "
+                    + "name text ," +
+                    "mob1 text ," +
+                    "mob2 text," +
+                    "blood_group text  ," +
+                    "area text," +
+                    "city text," +
+                    "state text );";
+
     private final Context context;
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;
@@ -56,7 +66,8 @@ public class DBAdapter {
         public void onCreate(SQLiteDatabase db)
         {
             try {
-                db.execSQL(DATABASE_CREATE);               
+                db.execSQL(DATABASE_CREATE);
+                db.execSQL(BLOOD_TABLE);
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -69,6 +80,7 @@ public class DBAdapter {
             Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
             db.execSQL("DROP TABLE IF EXISTS Result");
+            db.execSQL("DROP TABLE IF EXISTS BLOOD_TABLE");
          
             onCreate(db);
         }
@@ -124,6 +136,36 @@ public class DBAdapter {
     }
 
 
+  /*  + "name text ," +
+            "mob1 text ," +
+            "mob2 text," +
+            "blood_group text  ," +
+            "area text," +
+            "city text," +
+            "state text );";*/
+
+    public long insertRecordBLOOD(String name,String mob1, String mob2,String blood_group
+            ,String area,String city,String state)
+    {
+        ContentValues initialValues = new ContentValues();
+
+        initialValues.put("name", name);//1
+        initialValues.put("mob1", mob1);//2
+        initialValues.put("mob2", mob2);//3
+        initialValues.put("blood_group", blood_group);//4
+
+        initialValues.put("area", area);//5
+        initialValues.put("city", city);//6
+
+        initialValues.put("state", state);//7
+
+
+        Log.e("insert in blood ","ok");
+
+        return db.insert(BLOOD_TABLE, null, initialValues);
+    }
+
+
     //---deletes a particular contact---
     public void deleteRecord( )
     {
@@ -132,16 +174,20 @@ public class DBAdapter {
       //  return db.delete(DATABASE_TABLE,null );
     }
 
-    //---retrieves all the contacts---
-    /*public Cursor getAllContacts()
+    public void deleteRecordBLOOD( )
     {
-        return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_NAME,KEY_SCORE},
-                null, null, null, null, null);
+        Log.e("record ddelted ","ok");
+        db.execSQL("delete  from "+ BLOOD_TABLE);
+
     }
-*/
 
-
-
+    //---retrieves a particular contact---
+    public Cursor getRecordBLOOD(String rowId) throws SQLException
+    {
+        String selectQuery = "SELECT * FROM BLOOD_TABLE WHERE UPPER(blood_group) ="+"\""+rowId.toString().trim().toUpperCase()+"\"";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        return cursor;
+    }
 
 
 
@@ -150,14 +196,6 @@ public class DBAdapter {
     {
         String selectQuery = "SELECT * FROM Result WHERE UPPER(WORD) ="+"\""+rowId.toString().trim().toUpperCase()+"\"";
         Cursor cursor = db.rawQuery(selectQuery, null);
-
-
-        /*Cursor mCursor =db.query(true, DATABASE_TABLE, new String[] {
-                        KEY_NAME, KEY_SCORE}, KEY_NAME + "=" + rowId, null,
-                null, null, null, null);
-        if (mCursor != null) {
-            mCursor.moveToFirst();
-        }*/
         return cursor;
     }
 

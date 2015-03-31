@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:genius="http://schemas.android.com/apk/res-auto"
+    xmlns:ppv="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/icon"/>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="16dp"
+       android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:text="Satish Jay"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="#494949"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtname"/>
+            <TextView
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_width="0dp"
+                android:text="AB +ve"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#494949"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtbloodgroup"/>
+        </LinearLayout>
+    <TextView
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:text="123456789"
+        android:textColor="#494949"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMob"/>
+        <TextView
+
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:text="Area:- Gopalganj"
+            android:textColor="#494949"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtArea"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
