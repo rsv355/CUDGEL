@@ -154,12 +154,167 @@
 
     </LinearLayout>
 
-    <ListView
-        android:layout_width="match_parent"
+    <ScrollView
+
         android:layout_below="@+id/clockView"
         android:layout_above="@id/linearBottom"
-        android:layout_height="match_parent"
-        android:footerDividersEnabled="false"
-        android:id="@+id/listview"></ListView>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Q."
+                    android:layout_width="wrap_content"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:layout_height="wrap_content"
+                    android:textSize="35sp" />
+                <TextView
+                    android:text="1"
+                    android:id="@+id/txtQno"
+                    android:layout_width="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtQuestion"
+                android:text="What is your age?"
+                android:layout_width="match_parent"
+                android:maxLines="5"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/img"/>
+
+            <!-- setting the opetions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <!-- OPTION A -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <net.qiujuer.genius.widget.GeniusCheckBox
+                        android:id="@+id/a"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        genius:g_theme="@array/Sandstone"
+                        genius:g_ringWidth="2dp"
+                        genius:g_circleRadius="22dp"
+                        genius:g_checked="false"
+                        genius:g_enabled="true" />
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/txtOptA"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+                <!-- OPTION B -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+                    <net.qiujuer.genius.widget.GeniusCheckBox
+                        android:id="@+id/b"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        genius:g_theme="@array/Sandstone"
+                        genius:g_ringWidth="2dp"
+                        genius:g_circleRadius="22dp"
+                        genius:g_checked="false"
+                        genius:g_enabled="true" />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/txtOptB"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+                <!-- OPTION C -->
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <net.qiujuer.genius.widget.GeniusCheckBox
+                        android:id="@+id/c"
+                        android:layout_marginLeft="10dp"
+
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        genius:g_theme="@array/Sandstone"
+                        genius:g_ringWidth="2dp"
+                        genius:g_circleRadius="22dp"
+                        genius:g_checked="false"
+                        genius:g_enabled="true" />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/txtOptC"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+                <!-- OPTION D -->
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <net.qiujuer.genius.widget.GeniusCheckBox
+                        android:id="@+id/d"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        genius:g_theme="@array/Sandstone"
+                        genius:g_ringWidth="2dp"
+                        genius:g_circleRadius="22dp"
+                        genius:g_checked="false"
+                        genius:g_enabled="true" />
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/txtOptD"
+                        android:text="krishna"
+                        android:layout_width="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
 </RelativeLayout>

@@ -38,11 +38,10 @@ import java.util.Date;
 public class QuestionActivity extends ActionBarActivity {
     private TextView txtSecond,txtMinute,txtHour;
     private Toolbar toolbar;
-    private ListView listview;
+
     ProgressDialog dialog;
-    ImageView img;
+
     net.qiujuer.genius.widget.GeniusButton btnNext,btnPrevious;
-    com.filippudak.ProgressPieView.ProgressPieView pieView;
     private ArrayList<QuestionDetails> Ques_det;
     int counter=0;
     net.qiujuer.genius.widget.GeniusCheckBox optA,optB,optC,optD;
@@ -51,9 +50,9 @@ public class QuestionActivity extends ActionBarActivity {
 
     String selectedOption="NA";
     DBAdapter db;
-    boolean isTestComplete =false;
-    CurrentTest obj;
 
+    CurrentTest obj;
+    TextView txtQuestion,txtOptA,txtOptB,txtOptC,txtOptD,txtno;
 
     @Override
     public void onBackPressed() {
@@ -101,7 +100,7 @@ public class QuestionActivity extends ActionBarActivity {
 
         btnPrevious = (net.qiujuer.genius.widget.GeniusButton)findViewById(R.id.btnPrevious);
       //  pieView = (com.filippudak.ProgressPieView.ProgressPieView) findViewById(R.id.progressPieViewXml);
-        listview = (ListView) findViewById(R.id.listview);
+
         btnNext = (net.qiujuer.genius.widget.GeniusButton)findViewById(R.id.btnNext);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor("#3D3427"));
@@ -110,6 +109,19 @@ public class QuestionActivity extends ActionBarActivity {
         txtSecond= (TextView) findViewById(R.id.txtSecond);
         txtMinute= (TextView) findViewById(R.id.txtMinute);
         txtHour= (TextView) findViewById(R.id.txtHour);
+
+         txtno = (TextView) findViewById(R.id.txtQno);
+         txtQuestion = (TextView) findViewById(R.id.txtQuestion);
+         txtOptA = (TextView) findViewById(R.id.txtOptA);
+         txtOptB = (TextView) findViewById(R.id.txtOptB);
+         txtOptC = (TextView) findViewById(R.id.txtOptC);
+         txtOptD = (TextView) findViewById(R.id.txtOptD);
+
+        optA = (net.qiujuer.genius.widget.GeniusCheckBox) findViewById(R.id.a);
+        optB = (net.qiujuer.genius.widget.GeniusCheckBox) findViewById(R.id.b);
+        optC = (net.qiujuer.genius.widget.GeniusCheckBox) findViewById(R.id.c);
+        optD = (net.qiujuer.genius.widget.GeniusCheckBox) findViewById(R.id.d);
+
 
 
         if (toolbar != null) {
@@ -151,33 +163,20 @@ public class QuestionActivity extends ActionBarActivity {
         });
 
 
-        // 1s = 35
-       /* pieView.setProgress(0);
-        pieView.setMax(350);
-        pieView.animateProgressFill();*/
+
 
         setclock();
-        viewdata(StartTestActivity.Ques_det);
-
-
-        checkQuestionNo(counter);
-
+        setupQuestion(counter);
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 counter+=1;
                 if(counter>=StartTestActivity.Ques_det.size()){
-                    Log.e("indied if","if");
-                    isTestComplete=true;
-                    Toast.makeText(QuestionActivity.this,"Wait for time to finish !!!",Toast.LENGTH_LONG).show();
+                    counter=StartTestActivity.Ques_det.size()-1;
+
                 }else {
-                    Log.e("indied else","else");
-                    isTestComplete=false;
-
-                    checkQuestionNo(counter);
-
-
+                    setupQuestion(counter);
                 }
 
             }
@@ -188,70 +187,43 @@ public class QuestionActivity extends ActionBarActivity {
             public void onClick(View v) {
                 counter-=1;
                 if(counter<0){
-                    Log.e("indied if","if");
-                    isTestComplete=true;
+                    counter=0;
                     Toast.makeText(QuestionActivity.this,"You are at the first Question",Toast.LENGTH_LONG).show();
                 }else {
-                    Log.e("indied else","else");
-                    isTestComplete=false;
 
-                    checkQuestionNo(counter);
-
-
+                    setupQuestion(counter);
                 }
             }
         });
 
 
-      /*  pieView.setOnProgressListener(new ProgressPieView.OnProgressListener() {
-            @Override
-            public void onProgressChanged(int progress, int max) {
-                int counter = progress;
-                if(progress%35==0){
-                    pieView.setTextSize(28);
-                    pieView.setShowText(true);
-                    pieView.setText(String.valueOf(progress/35)+"s");
-                }
-
-            }
-
-            @Override
-            public void onProgressCompleted() {
-//                counter+=1;
-//
-//                if(counter>=StartTestActivity.Ques_det.size()){
-//                    pieView.setTextSize(18);
-//                    pieView.setText("Time up");
-//
-//                    selectoption.add(selectedOption);
-//                    Log.e("Select value in time",""+selectedOption);
-//
-//                    insertRecordinDatabase();
-
-
-                    Toast.makeText(QuestionActivity.this,"Questions are finished :)",Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(QuestionActivity.this,FinishActivity.class);
-                    startActivity(i);
-                    finish();
-               *//* }else {
-                    checkQuestionNo(counter);
-
-
-                }*//*
-
-
-            }
-        });*/
-
-       /* time_text  =  Integer.valueOf(Prefs.getString("Time_text",""));
-        time_image =  Integer.valueOf(Prefs.getString("Time_image", ""));
-        time_audio =  Integer.valueOf(Prefs.getString("Time_audio", ""));
-*/
-
     }
 
+ private void setupQuestion(int counter){
+     if(counter==0){
+            btnPrevious.setVisibility(View.GONE);
+            btnNext.setVisibility(View.VISIBLE);
+       }
 
-    private void setclock(){
+     else{
+         btnPrevious.setVisibility(View.VISIBLE);
+         btnNext.setVisibility(View.VISIBLE);
+     }
+
+     txtQuestion.setText(StartTestActivity.Ques_det.get(counter).Question.trim());
+     txtno.setText(""+(counter+1));
+     txtOptA.setText(StartTestActivity.Ques_det.get(counter).optA.trim());
+     txtOptB.setText(StartTestActivity.Ques_det.get(counter).optB.trim());
+     txtOptC.setText(StartTestActivity.Ques_det.get(counter).optC.trim());
+     txtOptD.setText(StartTestActivity.Ques_det.get(counter).optD.trim());
+ }
+
+
+
+
+
+
+private void setclock(){
 //3600000
         new CountDownTimer(120000, 1000) {
 
@@ -270,241 +242,11 @@ public class QuestionActivity extends ActionBarActivity {
     }
 
 
-    public void checkQuestionNo(final int qno ){
-
-        ArrayList<QuestionDetails> newObj = new ArrayList<QuestionDetails>(1);
-        newObj.add(StartTestActivity.Ques_det.get(counter));
-        viewdata(newObj);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
-        counter=0;
     }
 
-
-public void insertRecordinDatabase(){
-int total_answerd=0;
-int total_Unanswerd=0;
-int total_correct_answer=0;
-int total_wrong_answer=0;
-
-    for(int i=0;i<StartTestActivity.Ques_det.size();i++){
-  /*   Log.e("corect answer "+i,""+StartTestActivity.Ques_det.get(i).Correct_opt);
-     Log.e("selection value "+i,""+selectoption.get(i));
-*/
-        if(selectoption.get(i+1).equalsIgnoreCase("NA")){
-
-            total_Unanswerd++;
-            total_wrong_answer++;
-        }
-        else{
-            total_answerd++;
-            if(selectoption.get(i+1).equalsIgnoreCase(StartTestActivity.Ques_det.get(i).Correct_opt)){
-                total_correct_answer++;
-            }
-            else{
-                total_wrong_answer++;
-            }
-        }
-    }
-
-   /* this.Test_id = val1;
-    this.Test_date = val2;
-    this.Result = val3;
-    this.Total_ques = val4;
-    this.Correct_ques = val5;
-    this.Wrong_ques = val6;
-    this.Answered = val7;
-    this.UnAnswered = val8;
-
-*/
-
-
-    DateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy HH:mm:ss");
-    Date date1 = new Date();
-    String cuurentdate = ""+dateFormat.format(date1);
-
-
-    if(isTestComplete) {
-
-        if(total_correct_answer>=total_wrong_answer) {
-
-            obj.setValues(StartTestActivity.Ques_det.get(0).Test_id,
-                    cuurentdate,
-                    "PASS",
-                    StartTestActivity.Ques_det.size(),
-                    total_correct_answer,
-                    total_wrong_answer,
-                    total_answerd,
-                    total_Unanswerd);
-        }
-        else{
-            obj.setValues(StartTestActivity.Ques_det.get(0).Test_id,
-                    cuurentdate,
-                    "FAIL",
-                    StartTestActivity.Ques_det.size(),
-                    total_correct_answer,
-                    total_wrong_answer,
-                    total_answerd,
-                    total_Unanswerd);
-        }
-    }
-
-
-
-    if(isTestComplete) {
-        db.open();
-        db.insertRecord(String.valueOf(obj.Test_id),
-                String.valueOf(obj.Test_date),
-                String.valueOf(obj.Result),
-                String.valueOf(obj.Total_ques),
-                String.valueOf(obj.Correct_ques),
-                String.valueOf(obj.Wrong_ques),
-                String.valueOf(obj.Answered),
-                String.valueOf(obj.UnAnswered));
-        db.close();
-    }
-
-}
-
-
-public void viewdata(ArrayList<QuestionDetails> Ques_detlobjects) {
-
-        Myadapter adapter = new Myadapter(QuestionActivity.this,Ques_detlobjects,counter);
-        listview.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-    }
-
-   public class Myadapter extends BaseAdapter{
-
-         Context context;
-         int layoutResourceId;
-         ArrayList<QuestionDetails> values;
-
-         public Myadapter(Context context,ArrayList<QuestionDetails> objects,final int counter) {
-             this.context = context;
-             this.values=objects;
-         }
-
-
-       @Override
-       public int getCount() {
-           return values.size();
-       }
-
-       @Override
-       public Object getItem(int position) {
-           return null;
-       }
-
-       @Override
-       public long getItemId(int position) {
-           return position;
-       }
-
-       @Override
-         public View getView(final int position, View convertView, ViewGroup parent) {
-             if(convertView == null){
-                 convertView = QuestionActivity.this.getLayoutInflater().inflate(R.layout.items_question_activity,null);
-             }
-
-           TextView txtno = (TextView) convertView.findViewById(R.id.txtQno);
-
-             img = (ImageView)convertView.findViewById(R.id.img);
-
-             TextView txtQuestion = (TextView) convertView.findViewById(R.id.txtQuestion);
-             TextView txtOptA = (TextView) convertView.findViewById(R.id.txtOptA);
-             TextView txtOptB = (TextView) convertView.findViewById(R.id.txtOptB);
-             TextView txtOptC = (TextView) convertView.findViewById(R.id.txtOptC);
-             TextView txtOptD = (TextView) convertView.findViewById(R.id.txtOptD);
-
-
-           optA = (net.qiujuer.genius.widget.GeniusCheckBox)convertView. findViewById(R.id.a);
-           optB = (net.qiujuer.genius.widget.GeniusCheckBox)convertView. findViewById(R.id.b);
-           optC = (net.qiujuer.genius.widget.GeniusCheckBox)convertView. findViewById(R.id.c);
-           optD = (net.qiujuer.genius.widget.GeniusCheckBox)convertView. findViewById(R.id.d);
-
-
-
-           txtno.setText(String.valueOf(counter+1));
-           txtQuestion.setText(values.get(position).Question);
-           txtOptA.setText("   "+values.get(position).optA);
-           txtOptB.setText("   "+values.get(position).optB);
-           txtOptC.setText("   "+values.get(position).optC);
-           txtOptD.setText("   "+values.get(position).optD);
-             //Log.e("value", String.valueOf(values.get(position).getString("playerName")));
-
-
-
-           optA.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   selectedOption="A";
-                   optB.setChecked(false);
-                   optC.setChecked(false);
-                   optD.setChecked(false);
-
-               }
-           });
-
-           optB.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   selectedOption="B";
-                   optA.setChecked(false);
-                   optC.setChecked(false);
-                   optD.setChecked(false);
-
-               }
-           });
-
-           optC.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   selectedOption="C";
-                   optB.setChecked(false);
-                   optA.setChecked(false);
-                   optD.setChecked(false);
-
-               }
-           });
-
-           optD.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   selectedOption="D";
-                   optB.setChecked(false);
-                   optC.setChecked(false);
-                   optA.setChecked(false);
-
-               }
-           });
-
-
-           selectoption.add(selectedOption);
-           Log.e("Select value",""+selectedOption);
-           selectedOption="NA";
-
-          /* if(values.get(position).Q_type.equalsIgnoreCase("text")){
-               finaltime=time_text;
-           }*/
-
-
-          /* pieView.setProgress(0);
-           pieView.setMax(finaltime*35);
-           pieView.animateProgressFill();*/
-
-
-
-
-             return  convertView;
-         }
-
-
-     }
 
 
     //end of min class
