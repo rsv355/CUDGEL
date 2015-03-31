@@ -234,7 +234,7 @@ public class BloodSearchActivity extends ActionBarActivity {
             txtname.setText(result.get(position).name.trim());
             txtbloodgroup.setText(result.get(position).blood_group.trim());
 
-            if(result.get(position).mob2 == null ){
+            if(result.get(position).mob2 == null || result.get(position).mob2.trim().length()==0 ){
                 txtMob.setText(result.get(position).mob1.trim());
             }
             else{
