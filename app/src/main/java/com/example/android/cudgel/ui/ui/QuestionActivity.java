@@ -46,8 +46,7 @@ public class QuestionActivity extends ActionBarActivity {
     private ArrayList<QuestionDetails> Ques_det;
     int counter=0;
     net.qiujuer.genius.widget.GeniusCheckBox optA,optB,optC,optD;
-    int time_text,time_image,time_audio;
-    int finaltime=10;
+
     public static ArrayList<String> selectoption=new ArrayList<String>();
 
     String selectedOption="NA";
@@ -121,7 +120,33 @@ public class QuestionActivity extends ActionBarActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(QuestionActivity.this);
+                alertDialog.setTitle("Warning");
+
+                // Setting Dialog Message
+                alertDialog.setMessage("Would you like to cancel this test ?\nCurrent test data will be lost!!!");
+
+                alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int which) {
+
+                        Intent i = new Intent(QuestionActivity.this,StartTestActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+
+
+                    }
+                });
+
+                // Setting Negative "NO" Button
+                alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Write your code here to invoke NO event
+
+                    }
+                });
+
+                // Showing Alert Message
+                alertDialog.show();
             }
         });
 
