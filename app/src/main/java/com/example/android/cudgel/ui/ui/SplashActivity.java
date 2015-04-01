@@ -238,12 +238,14 @@ private void processStart2(){
 
                 if (e == null) {
                     Log.e("size of list", String.valueOf(parseObjects.size()));
-                    //Toast.makeText(StartTestActivity.this, String.valueOf(parseObjects.get(i).get("Test_id")), Toast.LENGTH_LONG).show();
-                    Prefs.putString("TestID", String.valueOf(parseObjects.get(0).get("Test_id")));
-                    Prefs.putString("Password",String.valueOf(parseObjects.get(0).get("Password")));
-                    Prefs.putString("Tot_Time",String.valueOf(parseObjects.get(0).get("Tot_Time")));
-                    Prefs.putString("Tot_Question",String.valueOf(parseObjects.get(0).get("Tot_Question")));
 
+                    for(int i=0;i<parseObjects.size();i++) {
+                     //   Toast.makeText(SplashActivity.this, String.valueOf(parseObjects.get(i).get("Test_id")), Toast.LENGTH_LONG).show();
+                        Prefs.putString("TestID", String.valueOf(parseObjects.get(0).get("Test_id")));
+                        Prefs.putString("Password", String.valueOf(parseObjects.get(0).get("Password")));
+                        Prefs.putString("Tot_Time", String.valueOf(parseObjects.get(0).get("Tot_Time")));
+                        Prefs.putString("Tot_Question", String.valueOf(parseObjects.get(0).get("Tot_Question")));
+                    }
                     processStart2();
 
 
