@@ -98,14 +98,31 @@ public class StartTestActivity extends ActionBarActivity {
             etPassword.setError("Please Enter Password !!!");
             return;
         }
-           if (etTestid.getText().toString().trim().equalsIgnoreCase(testid) && etPassword.getText().toString().trim().equals(password))
-        {
-            fetchQuestiondetails();
-          //  processStartCounter();
 
-        } else {
-            Toast.makeText(this, "Wrong Test id", Toast.LENGTH_LONG).show();
+        boolean found=false;
+
+        for(int i=0;i<SplashActivity.qm.size();i++) {
+            Log.e("values",SplashActivity.qm.get(i).Test_id.toString());
+            if (etTestid.getText().toString().trim().equalsIgnoreCase(SplashActivity.qm.get(i).Test_id.toString()) && etPassword.getText().toString().trim().equals(SplashActivity.qm.get(i).Password.toString())) {
+                found=true;
+                break;
+
+            } else {
+                found=false;
+
+            }
         }
+
+        if(found){
+            fetchQuestiondetails();
+        }else{
+            Toast.makeText(this, "Wrong Test id or Password !!!", Toast.LENGTH_LONG).show();
+         }
+
+
+
+
+
     }
 
     @Override
@@ -153,7 +170,7 @@ public class StartTestActivity extends ActionBarActivity {
 
         String temp = Prefs.getString("TestID", "");
         ParseQuery parsequery = ParseQuery.getQuery("Question_details");
-        parsequery.whereEqualTo("Test_id", temp);
+        parsequery.whereEqualTo("Test_id", etTestid.getText().toString().trim().toUpperCase());
         parsequery.findInBackground(new FindCallback<ParseObject>() {
 
             @Override
@@ -163,33 +180,40 @@ public class StartTestActivity extends ActionBarActivity {
                     Log.e("size of question list", String.valueOf(parseObjects.size()));
                     tempParseSize = parseObjects.size();
 
-                    for (i = 0; i < parseObjects.size(); i++)
-                    {
-                        Log.e("quesiotn", String.valueOf(((ParseObject)parseObjects.get(i)).get("Question")));
 
-                       QuestionDetails newobj =  new QuestionDetails();
-
-                        newobj.Question = String.valueOf(((ParseObject)parseObjects.get(i)).get("Question"));
-                        newobj.Correct_opt = String.valueOf(((ParseObject)parseObjects.get(i)).get("Correct_opt"));
-
-                        newobj.Test_id=String.valueOf(((ParseObject)parseObjects.get(i)).get("Test_id"));
-                        newobj.Q_id=String.valueOf(((ParseObject)parseObjects.get(i)).get("Q_id"));
-
-                        newobj.optA=String.valueOf(((ParseObject)parseObjects.get(i)).get("optA"));
-                        newobj.optB=String.valueOf(((ParseObject)parseObjects.get(i)).get("optB"));
-                        newobj.optC=String.valueOf(((ParseObject)parseObjects.get(i)).get("optC"));
-                        newobj.optD=String.valueOf(((ParseObject)parseObjects.get(i)).get("optD"));
+                    if(tempParseSize!=0) {
 
 
+                        for (i = 0; i < parseObjects.size(); i++) {
+                            Log.e("quesiotn", String.valueOf(((ParseObject) parseObjects.get(i)).get("Question")));
 
-                        Ques_det.add(i,newobj);
+                            QuestionDetails newobj = new QuestionDetails();
+
+                            newobj.Question = String.valueOf(((ParseObject) parseObjects.get(i)).get("Question"));
+                            newobj.Correct_opt = String.valueOf(((ParseObject) parseObjects.get(i)).get("Correct_opt"));
+
+                            newobj.Test_id = String.valueOf(((ParseObject) parseObjects.get(i)).get("Test_id"));
+                            newobj.Q_id = String.valueOf(((ParseObject) parseObjects.get(i)).get("Q_id"));
+
+                            newobj.optA = String.valueOf(((ParseObject) parseObjects.get(i)).get("optA"));
+                            newobj.optB = String.valueOf(((ParseObject) parseObjects.get(i)).get("optB"));
+                            newobj.optC = String.valueOf(((ParseObject) parseObjects.get(i)).get("optC"));
+                            newobj.optD = String.valueOf(((ParseObject) parseObjects.get(i)).get("optD"));
 
 
+                            Ques_det.add(i, newobj);
+
+
+                        }
+
+                        dialog.dismiss();
+                        Intent intent = new Intent(StartTestActivity.this, QuestionActivity.class);
+                        startActivity(intent);
+                    }else{
+                        dialog.dismiss();
+                        Toast.makeText(StartTestActivity.this, "Sorry, Admin not added questions for this Test.", Toast.LENGTH_LONG).show();
                     }
 
-                    dialog.dismiss();
-                    Intent intent = new Intent(StartTestActivity.this,QuestionActivity.class);
-                    startActivity(intent);
 
                 } else {
                     Log.e("size of exception", e.getMessage());

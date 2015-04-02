@@ -3,6 +3,7 @@ package com.example.android.cudgel.ui.ui;
 import com.example.android.cudgel.R;
 import com.example.android.cudgel.ui.base.CircleMenuLayout;
 
+import com.example.android.cudgel.ui.base.QuestionMaster;
 import com.parse.FindCallback;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -24,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,6 +35,7 @@ public class SplashActivity extends Activity {
      FrameLayout fram_lay;
     ProgressDialog dialog;
     private CircleMenuLayout mCircleMenuLayout;
+    public static  ArrayList<QuestionMaster> qm = new ArrayList<QuestionMaster>();
 
     private String[] mItemTexts = new String[] { "Blood Bank", "Result", "Settings",
             "Clubs", "Share App", "About Us" };
@@ -240,11 +243,20 @@ private void processStart2(){
                     Log.e("size of list", String.valueOf(parseObjects.size()));
 
                     for(int i=0;i<parseObjects.size();i++) {
-                     //   Toast.makeText(SplashActivity.this, String.valueOf(parseObjects.get(i).get("Test_id")), Toast.LENGTH_LONG).show();
+                        QuestionMaster newobj = new QuestionMaster();
+
                         Prefs.putString("TestID", String.valueOf(parseObjects.get(0).get("Test_id")));
                         Prefs.putString("Password", String.valueOf(parseObjects.get(0).get("Password")));
                         Prefs.putString("Tot_Time", String.valueOf(parseObjects.get(0).get("Tot_Time")));
                         Prefs.putString("Tot_Question", String.valueOf(parseObjects.get(0).get("Tot_Question")));
+
+                        newobj.Test_id=parseObjects.get(i).get("Test_id").toString();
+                        newobj.Password=parseObjects.get(i).get("Password").toString();
+                        newobj.Tot_Time=Integer.valueOf(parseObjects.get(i).get("Tot_Time").toString());
+                        newobj.Tot_Question=Integer.valueOf(parseObjects.get(i).get("Tot_Question").toString());
+
+
+                        qm.add(newobj);
                     }
                     processStart2();
 

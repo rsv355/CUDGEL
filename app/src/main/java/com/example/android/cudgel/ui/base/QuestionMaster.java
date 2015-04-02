@@ -6,18 +6,13 @@ package com.example.android.cudgel.ui.base;
 public class QuestionMaster {
     public String Test_id;
 
-    public String Q_id;
-
     public String Password;
+
+    public int Tot_Time;
 
     public int Tot_Question;
 
-    public int Time_text;
 
-    public int Time_image;
 
-    public int Time_audio;
-
-    public boolean IsActive;
 
 }
