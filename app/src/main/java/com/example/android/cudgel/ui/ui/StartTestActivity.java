@@ -105,6 +105,7 @@ public class StartTestActivity extends ActionBarActivity {
             Log.e("values",SplashActivity.qm.get(i).Test_id.toString());
             if (etTestid.getText().toString().trim().equalsIgnoreCase(SplashActivity.qm.get(i).Test_id.toString()) && etPassword.getText().toString().trim().equals(SplashActivity.qm.get(i).Password.toString())) {
                 found=true;
+                Prefs.putInt("Time", SplashActivity.qm.get(i).Tot_Time);
                 break;
 
             } else {
