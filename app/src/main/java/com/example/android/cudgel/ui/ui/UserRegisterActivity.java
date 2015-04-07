@@ -103,7 +103,6 @@ public class UserRegisterActivity extends ActionBarActivity {
     }
 
 
-
     private void processSave(){
         try{
             ParseObject gameScore = new ParseObject("NCC_USER");
