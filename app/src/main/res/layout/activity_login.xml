@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:genius="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+   tools:context=".MainActivity">
+
+    <include layout="@layout/app_bar" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/txt"
+        android:textSize="30sp"
+        android:textColor="@color/color_appbar1"
+        android:layout_gravity="center_horizontal"
+        android:text="NCC Club Login" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <net.qiujuer.genius.widget.GeniusEditText
+        android:id="@+id/etUserid"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_theme="@array/Sandstone"
+        android:hint="Enter Login ID"
+
+        genius:g_fieldStyle="box"
+        genius:g_showTitle="true"
+        genius:g_titleTextColor="#ff1fedff"
+        genius:g_titleTextSize="12sp"
+        genius:g_titlePaddingTop="5dp"
+        genius:g_titlePaddingLeft="5dp"
+         />
+
+
+    <net.qiujuer.genius.widget.GeniusEditText
+        android:id="@+id/etPassword"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_theme="@array/Sandstone"
+        android:inputType="textPassword"
+        android:hint="Enter Password"
+
+        genius:g_fieldStyle="box"
+        genius:g_showTitle="true"
+        genius:g_titleTextColor="#ff1fedff"
+        genius:g_titleTextSize="12sp"
+        genius:g_titlePaddingTop="5dp"
+        genius:g_titlePaddingLeft="5dp"
+        />
+
+    <net.qiujuer.genius.widget.GeniusButton
+        android:id="@+id/btnStart"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Login"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        genius:g_delayClick="true"
+        genius:g_touchEffect="move"
+        genius:g_theme="@array/Marsala"
+        genius:g_touchEffectColor="#ff4181ff" />
+
+    <TextView
+        android:id="@+id/txtCounter"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:textSize="60sp"
+        android:textColor="@color/holo_orange_dark"
+        android:layout_gravity="center_horizontal"
+        android:text="10" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
+</LinearLayout>

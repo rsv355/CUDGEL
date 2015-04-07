@@ -60,6 +60,22 @@
             android:name=".ui.ui.BloodregisterActivity"
             android:label="CUDGEL"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ui.ClubLogin"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ui.OverViewActivity"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait"/>
+
+
+        <activity
+            android:name=".ui.ui.NCC"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.ui.BloodSearchActivity"
             android:label="CUDGEL"
