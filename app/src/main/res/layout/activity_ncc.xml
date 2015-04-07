@@ -28,6 +28,7 @@
 
 
         <TextView
+            android:id="@+id/txtusers"
             android:layout_marginTop="16dp"
             android:padding="16dp"
             android:layout_weight="1"
