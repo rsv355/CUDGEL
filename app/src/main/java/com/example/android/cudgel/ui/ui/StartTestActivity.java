@@ -120,10 +120,6 @@ public class StartTestActivity extends ActionBarActivity {
             Toast.makeText(this, "Wrong Test id or Password !!!", Toast.LENGTH_LONG).show();
          }
 
-
-
-
-
     }
 
     @Override
