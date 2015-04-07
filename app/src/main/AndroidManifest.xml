@@ -67,6 +67,11 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".ui.ui.UserRegisterActivity"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name=".ui.ui.OverViewActivity"
             android:label="CUDGEL"
             android:screenOrientation="portrait"/>

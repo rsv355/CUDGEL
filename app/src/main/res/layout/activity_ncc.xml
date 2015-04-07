@@ -40,6 +40,7 @@
             android:layout_height="0dp"
             android:text="View Users"/>
         <TextView
+            android:id="@+id/txtReg"
             android:layout_marginTop="16dp"
             android:padding="16dp"
             android:layout_weight="1"
