@@ -55,6 +55,17 @@
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat.Light.Dialog.FixedSize" />
 
+        <activity
+            android:name=".ui.ui.EVENTActivity"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ui.ACHActivity"
+            android:label="CUDGEL"
+            android:screenOrientation="portrait"/>
+
+
 
         <activity
             android:name=".ui.ui.BloodregisterActivity"

@@ -53,6 +53,26 @@ public class NCC extends ActionBarActivity {
         TextView txtReg = (TextView)findViewById(R.id.txtReg);
         TextView txtOverView = (TextView)findViewById(R.id.txtOverView);
 
+        TextView txtevent = (TextView)findViewById(R.id.txtevent);
+        TextView txtach = (TextView)findViewById(R.id.txtach);
+
+        txtevent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(NCC.this,EVENTActivity.class);
+                startActivity(i);
+            }
+        });
+
+        txtach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(NCC.this,ACHActivity.class);
+                startActivity(i);
+            }
+        });
+
+
 
         txtOverView.setOnClickListener(new View.OnClickListener() {
             @Override
