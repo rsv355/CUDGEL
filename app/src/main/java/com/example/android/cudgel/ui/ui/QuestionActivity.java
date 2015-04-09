@@ -26,6 +26,7 @@ import com.example.android.cudgel.ui.base.DBAdapter;
 import com.example.android.cudgel.ui.base.QuestionDetails;
 import com.example.android.cudgel.ui.model.CurrentTest;
 import com.filippudak.ProgressPieView.ProgressPieView;
+import com.parse.ParseObject;
 import com.pixplicity.easyprefs.library.Prefs;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -359,8 +360,28 @@ private void processInsertinDatabase(){
                 String.valueOf(obj.UnAnswered));
         db.close();
 
+         processSave(String.valueOf(obj.Test_id));
+
+
+
 }
 
+    private void processSave(String tid){
+        try{
+            ParseObject gameScore = new ParseObject("TEST_USER");
+
+            gameScore.put("testid", tid);
+            gameScore.put("user","student");
+
+            gameScore.saveInBackground();
+
+         //   Toast.makeText(QuestionActivity.this,"Record saved sucessfully",Toast.LENGTH_LONG).show();
+          //  finish();
+        }catch(Exception e){
+
+        }
+
+    }
 
 
 private void processFinish(){
